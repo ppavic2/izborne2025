@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MOD = 998244353;
+int MOD = 998244353;
 const int N = 505;
 
 inline int add(int a, int b) {
@@ -33,15 +33,10 @@ void precompute() {
 
 int main() {
 	ios_base::sync_with_stdio(false); cin.tie(0);
-
 	precompute();
 
+	//cin >> n >> MOD;
 	cin >> n;
-
-	if (n == 1) {
-		cout << "1 0\n";
-		return 0;
-	}
 
 	for (int i = 1; i < n; ++i) dp_0[1][i] = 1;
 	for (int i = 2; i <= n; ++i) {
