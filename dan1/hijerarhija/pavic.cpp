@@ -45,6 +45,6 @@ int main() {
 	for(int i = 0;i < 2 * N;i++) cur[i] = -INF;
 	for(int i = 0;i <= k;i++) cur[n + i] = 0;
 	dfs(1, n);
-	printf("%d\n", dp[1][k]);
+	printf("%d\n", max(0, dp[1][k]));
 	return 0;
 }

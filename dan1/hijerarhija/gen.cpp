@@ -17,10 +17,10 @@ int uzeo[N], cookie = 1, n, k;
 
 int main() {
 	srand(time(0) * getpid());
-	int n = 15, k = rand() % 160 + 40;
+	int n = 15, k = rand() % 5000;
 	printf("%d %d\n", n, k);
 	for(int i = 2;i <= n;i++) printf("%d%c", rand() % (i - 1) + 1, i == n ? '\n' : ' ');
-	for(int i = 1;i <= n;i++) printf("%d%c", rand() % 20 + 1, i == n ? '\n' : ' ');
-	for(int i = 1;i <= n;i++) printf("%d%c", rand() % 20 + 1, i == n ? '\n' : ' ');
+	for(int i = 1;i <= n;i++) printf("%d%c", rand() % 500 + 1, i == n ? '\n' : ' ');
+	for(int i = 1;i <= n;i++) printf("%d%c", rand() % 500 + 1, i == n ? '\n' : ' ');
 	return 0;
 }
