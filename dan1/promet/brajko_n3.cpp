@@ -35,8 +35,7 @@ int main() {
 	ios_base::sync_with_stdio(false); cin.tie(0);
 	precompute();
 
-	//cin >> n >> MOD;
-	cin >> n;
+	cin >> n >> MOD;
 
 	for (int i = 1; i < n; ++i) dp_0[1][i] = 1;
 	for (int i = 2; i <= n; ++i) {
