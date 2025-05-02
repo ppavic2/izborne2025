@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem statement
+\begin{statement}[
+  problempoints=100,
+  timelimit=2 sekunde,
+  memorylimit=1024 MiB,
+]{Dvoboj}
+
+\textit{Dvije faraonske žute linije su se pretvorile u oko...}
+
+Mladi Jusuf ima $N$ karata u svojem špilu, poredanih s lijeva na desno od $1$ do $N$. Svaka karta ima svoju snagu koju ćemo označavati s $p_i$. Jusuf se želi pripremiti za nadolazeći turnir, pa bi htio isprobati bitke između svojih karata te izmjenjivati karte u svojem špilu raznim drugim kartama koje je dobio na poklon od djeda. Ukupno će Jusuf napraviti $Q$ upita od kojih će svaki biti jednog od sljedeća dva tipa:
+
+\begin{itemize}
+\item \texttt{1 i r} - označava upit u kojem je Jusuf kartu na poziciji $i$ zamijenio novom kartom sa snagom $r$
+\item \texttt{2 l k} - Jusuf će zamisliti imaginarnu bitku s $2^k$ karata, počevši od $l$-te te završivši s $l + 2^k - 1$-tom, te zaderati se \textit{Vrijeme je za dvoboj!}. Bitka će se odvijati u $k$ koraka. U svakom koraku, Jusuf će promatrati parove susjednih karata (prvu i drugu, treću i četvrtu itd.) te usporediti njihove snage, neka su u jednom paru to $A$ i $B$. Karta s većom snagom će pobijediti, te će njezina nova snaga iznositi $|A - B|$ (kojagod karta pobijedila). Ako su karte jednake snage, bitka će biti neizvjesna te će nasumična karta pobijediti i njezina će snaga biti $0$. Karta koja je izgubila ne sudjeluje u preostalim rundama. Primijetite da nakon $k$ ovakvih koraka, ostat će točno jedna karta. Jusufa zanima njezina snaga! 
+\end{itemize} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Input
+\subsection*{Ulazni podaci}
+
+U prvom retku su prirodni brojevi $N$ i $Q$.
+
+U sljedećem retku nalazi se $N$ brojeva $p_i$ ($0 \leq p_i \leq 10^9$) koji označavaju snage karata.
+
+U sljedećih $Q$ redaka nalaze se opisi upita koji odgovaraju tekstu zadatka. 
+
+Za svaki upit tipa $1$ vrijedi $1 \leq i \leq N$ te $0 \leq r \leq 10^9$.
+
+Za svaki upit tipa $2$ vrijedi $1 \leq l \leq N$ te $1 \leq l + 2^k - 1 \leq N$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Output
+\subsection*{Izlazni podaci}
+
+Za svaki upit tipa $2$ potrebno je ispisati snagu završne karte nakon svih $k$ koraka.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scoring
+\subsection*{Bodovanje}
+
+U svim podzadacima vrijedi $2 \leq N \leq 200\,000$ i $1 \leq Q \leq 200\,000$.
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{ccl}
+   Podzadatak & Broj bodova & Ograničenja \\ \midrule
+    1 & 11 & $N, Q \leq 1000$ \\
+    2 & 13 & Za sve upite tipa $2$ vrijedi $N = 2^k$. \\
+    3 & 16 & Za sve $1 \leq i \leq N$ vrijedi $p_i \leq 1$ te za sve upite tipa $1$ vrijedi $r \leq 1$.\\
+    4 & 17 & Nema upita tipa $1$. \\
+    5 & 43 & Nema dodatnih ograničenja. \\
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examples
+\subsection*{Probni primjeri}
+\begin{tabularx}{\textwidth}{X'X'X}
+\sampleinputs{test/dvoboj.dummy.in.1}{test/dvoboj.dummy.out.1} &
+\sampleinputs{test/dvoboj.dummy.in.2}{test/dvoboj.dummy.out.2} &
+\sampleinputs{test/dvoboj.dummy.in.3}{test/dvoboj.dummy.out.3}
+\end{tabularx}
+
+\textbf{Pojašnjenje prvog probnog primjera:}\\
+
+U prvom upitu karte će se ovako mijenjati tijekom koraka:
+
+\[ (4, 8, 2, 0) \rightarrow (4, 2) \rightarrow (2) \]
+
+U trećem upitu karte će se ovako mijenjati tijekom koraka:
+
+\[ (8, 2) \rightarrow (6) \]
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We're done
+\end{statement}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% ispell-local-dictionary: "croatian"
+%%% TeX-master: "../hio.tex"
+%%% End:
