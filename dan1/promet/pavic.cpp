@@ -44,18 +44,17 @@ void precompute() {
 }
 
 int f(int cvor, int PLJ_L,
-				int C_L,
 				int J_LJ,
 				int J_C) {
 	if(cvor == n - 1) return J_LJ == 1 && J_C == 0;
-	int Z_L = cvor - PLJ_L - C_L;
+	int ZC_L = cvor - PLJ_L;
 	int ret = 0;
-	ret = add(ret, mul(f(cvor + 1, PLJ_L + 1, C_L, J_LJ, J_C), mul(pot2[Z_L + C_L], sub(pot2[PLJ_L], 1))));
+	ret = add(ret, mul(f(cvor + 1, PLJ_L + 1, J_LJ, J_C), mul(pot2[ZC_L], sub(pot2[PLJ_L], 1))));
 	if(J_C > 0)
-		ret = add(ret, mul(f(cvor + 1, PLJ_L, C_L + 1, J_LJ, J_C - 1), sub(pot2[J_LJ + J_C - 1], 1)));
-	ret = add(ret, mul(f(cvor + 1, PLJ_L, C_L, J_LJ, J_C), pot2[Z_L + C_L]));
+		ret = add(ret, mul(f(cvor + 1, PLJ_L, J_LJ, J_C - 1), sub(pot2[J_LJ + J_C - 1], 1)));
+	ret = add(ret, mul(f(cvor + 1, PLJ_L, J_LJ, J_C), pot2[ZC_L]));
 	if(J_LJ > 1)
-		ret = add(ret, f(cvor + 1, PLJ_L + 1, C_L, J_LJ - 1, J_C));
+		ret = add(ret, f(cvor + 1, PLJ_L + 1, J_LJ - 1, J_C));
 	return ret;
 }
 
@@ -77,7 +76,7 @@ int main() {
 	int sve = pot2[n * (n - 1) / 2];
 	for(int i = 2;i <= n;i++) {
 		for(int c = 0;c + i <= n;c++) {
-			ans[i] = add(ans[i], f(1, 1, 0, i - 1, c));
+			ans[i] = add(ans[i], f(1, 1, i - 1, c));
 		}
 		ans[i] = mul(ans[i], f2(1, i - 1, 1));
 		sve = sub(sve, ans[i]);
