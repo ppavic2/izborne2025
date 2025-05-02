@@ -14,17 +14,17 @@ def check(lines):
     assert 2 <= n <= 5000, "krivi n"
     assert 1 <= k <= 5000, "krivi p"
     
-    pars = list(map(int, input().split()))
-    ps = list(map(int, input().split()))
-    cs = list(map(int, input().split()))
+    pars = list(map(int, lines[1].strip().split()))
+    ps = list(map(int, lines[2].strip().split()))
+    cs = list(map(int, lines[3].strip().split()))
     
     assert len(pars) == n - 1, "kriva duljina roditelja"
     assert len(ps) == n, "krivi broj p-ova"
     assert len(cs) == n, "krivi broj c-ova"
     
-    nl.append(" ".join([str(x) for x in pars]))
-    nl.append(" ".join([str(x) for x in ps]))
-    nl.append(" ".join([str(x) for x in cs]))
+    nl.append(" ".join([str(x) for x in pars]) + E)
+    nl.append(" ".join([str(x) for x in ps]) + E)
+    nl.append(" ".join([str(x) for x in cs]) + E)
     
     lanac = 1
     
@@ -36,8 +36,8 @@ def check(lines):
     heap = 1
     
     for i in range(1, n):
-    	if ps[pars[i] - 1] < ps[i]:
-    		heap = 0
+        if ps[pars[i - 1] - 1] < ps[i]:
+            heap = 0
     for x in ps: 
     	assert 1 <= x <= 10 ** 5, "krivi p"
     for x in cs:
