@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem statement
+\begin{statement}[
+  problempoints=100,
+  timelimit=1 sekunda,
+  memorylimit=512 MiB,
+]{Trava}\
+
+U mirnom kutku grada nalazi se umirovljenički dom čiji stanari vole provoditi vrijeme promatrajući travnjak ispred zgrade. Travnjak je podijeljen na $N$ segmenata, a svaki segment ima visinu trave $a_i$ milimetara, za $1 \leq i \leq N$.
+
+Umirovljenici, zbog godina i dioptrije, ne vide baš savršeno. Kada umirovljenik s dioptrijom $k$ promatra travnjak, on ne razlikuje pojedinačne segmente unutar $k$ uzastopnih dijelova travnjaka. Formalnije, umirovljenik s dioptrijom $k$ na poziciji $i$ vidi visinu trave $\max(a_i, a_{i+1}, \ldots, a_{i+k-1})$ milimetara, za sve $1 \leq i \leq N - k + 1$, dok ostale pozicije ne promatra.
+
+Osim toga, s vremena na vrijeme trava na nekom segmentu može narasti za jedan milimetar, čime se mijenja izgled cijelog travnjaka i utječe na doživljaj umirovljenika.
+
+Potrebno je obraditi $Q$ upita sljedećih oblika:
+\vspace{-0.7em}
+\begin{itemize}
+    \item \texttt{1 k} — umirovljenik s dioptrijom $k$ promatra travnjak. Odredi sumu svih visina koje on vidi.
+    \item \texttt{2 i} — trava na $i$-tom segmentu naraste za jedan milimetar.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Input
+\subsection*{Ulazni podaci}
+
+U prvom retku nalazi se prirodan broj $N$ — broj segmenata travnjaka.
+
+U drugom retku nalazi se $N$ cijelih brojeva $a_1, a_2, \ldots, a_N$ — početne visine trave.
+
+U trećem retku nalazi se cijeli broj $Q$ — broj upita.
+
+U idućih $Q$ redaka nalazi se po jedan upit opisan kao:
+\vspace{-0.7em}
+\begin{itemize}
+    \item \texttt{1 k} ($1 \leq k \leq N$)
+    \item \texttt{2 i} ($1 \leq i \leq N$)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Output
+\subsection*{Izlazni podaci}
+
+Za svaki upit tipa \texttt{1 k}, ispiši u zaseban redak jedan cijeli broj — sumu najvećih visina u svim prozorima duljine $k$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scoring
+\subsection*{Bodovanje}
+
+%%%%%%%%%	NAPISATI OGRANICENJA
+%%%%%%%%%   prepraviti prirodan / cijeli broj iz ulaza po potrebi
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{ccl}
+   Podzadatak & Broj bodova & Ograničenja \\ \midrule
+   	1 & 4 & $N \leq 20$ \\
+    2 & 7 & $c_i = 1$ za sve $i$ i dodatno ako je $j$ šef od $i$ tada $p_j \geq p_i$. \\
+    3 & 23 & Za sve $i < N$, izravan šef od $i + 1$ je $i$. \\
+    4 & 13 & $N, K \leq 500$ \\
+    5 & 18 & $N \leq 100$ \\
+    6 & 35 & Nema dodatnih ograničenja. \\
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examples
+\subsection*{Probni primjeri}
+\begin{tabularx}{\textwidth}{X'X'X}
+\sampleinputs{test/trava.dummy.in.1}{test/trava.dummy.out.1} &
+\sampleinputs{test/trava.dummy.in.2}{test/trava.dummy.out.2} &
+\sampleinputs{test/trava.dummy.in.3}{test/trava.dummy.out.3}
+\end{tabularx}
+
+\pagebreak
+
+\textbf{Pojašnjenje drugog probnog primjera:}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We're done
+\end{statement}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% ispell-local-dictionary: "croatian"
+%%% TeX-master: "../hio.tex"
+%%% End:
