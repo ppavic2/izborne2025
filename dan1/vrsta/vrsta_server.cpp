@@ -169,8 +169,7 @@ void main_problem_interaction() {
   	test_condition(contestant_answer == second_max(l[i], r[i]), WA_INCORRECT);
   }
   
-  
-  flog << "broj upita: " << query_count << " koeficijent " << (query_count / (double)n) << endl;
+  foutput << 1 << endl;
  // foutput << "broj upita: " << query_count << endl;
 }
 
