@@ -170,7 +170,7 @@ void main_problem_interaction() {
   }
   
   foutput << 1 << endl;
- // foutput << "broj upita: " << query_count << endl;
+  flog << "broj upita: " << query_count << endl;
 }
 
 int main(int argc, char *argv[]) {

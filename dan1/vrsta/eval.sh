@@ -9,5 +9,6 @@ do
   ./vrsta_server $f /dev/null flog foutput < temp | ./$1 > temp
   printf $f
   printf " "
+  cat foutput
   tail -n 1 flog
 done
