@@ -126,7 +126,7 @@ void main_problem_interaction() {
   // Start interaction
   int query_count = 0;
 
-  cout << n << " " << q << endl;
+  cout << n << endl;
 
   flog << WAITING << endl;
   // Loop.

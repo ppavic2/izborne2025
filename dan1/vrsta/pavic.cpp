@@ -94,7 +94,7 @@ int second_max(int l, int r) {
 }
 
 int main() {
-	cin >> n >> k;
+	cin >> n;
 	int max_pos = find_max(1, n);
 	build_tree(1, max_pos - 1, 0, max_pos);
 	build_tree(max_pos + 1, n, max_pos, n + 1);
