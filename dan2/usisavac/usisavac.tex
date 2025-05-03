@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem statement
+\begin{statement}[
+  problempoints=100,
+  timelimit=1 sekunda,
+  memorylimit=512 MiB,
+]{Usisavač}
+
+Mirko ima veliku kuću koja se sastoji od $N$ soba povezanih s $N - 1$ hodnikom. Svaki hodnik povezuje dvije različite sobe i sve su sobe međusobno povezane. Svaki je hodnik dugačak 1 metar. Mirko često čisti sobe u stanu ali rijetko hodnike. U hodnicima se nakupila prašina i Mirko ih sada želi usisati. 
+
+Svaki usisavač ima nažalost i kabel ograničene duljine. Svaka soba ima utičnicu i usisavač mora biti uštekan u utičnicu u nekoj sobi da bi mogao raditi. Mirko kreće od sobe $1$ i može napraviti sljedeće:
+
+Ako usisavač nije uštekan u struju, on može:
+\begin{itemize}
+	\item Uštekati ga u struju u sobi u kojoj se nalazi. 
+	\item Uzeti usisavač u ruke i prijeći u jednu od susjednih soba. Za prolazak hodnikom mu treba 1 minuta.
+\end{itemize}
+
+Ako je usisavač uštekan u struju, on može:
+\begin{itemize}
+	\item Ako se nalazi u sobi u kojoj je uštekao usisavač, može ga odspojiti iz utičnice.
+	\item Prijeći u jednu od susjednih hodnika usisavajući hodnik na putu. Ovo može napraviti \textbf{samo ako} je kabel dovoljno dugačak. To jest, ako je udaljenost od sobe u kojoj je uštekan usisavač i ciljane sobe manja ili jednaka od duljine kabla. Za čišćenje hodnika mu treba 1 minuta.
+\end{itemize}
+
+Mirkov usisavač se pokvario! Sada je u dućanu u kojem se nalazi $Q$ usisavača, $i$-ti od njih ima duljinu kabla $r_i$ metara. Zanima ga za svaki od usisavača koliko će minimalno trajati usisavanje svih hodnika ako kupi taj usisavač. Pomozite mu odrediti ta vremena!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Input
+\subsection*{Ulazni podaci}
+
+U prvom retku su prirodni brojevi $N$ i $Q$, broj soba i broj usisavača.
+
+U idućih $N - 1$ redaka nalaze se prirodni brojevi $x_i$ i $y_i$ $(1 \le x_i, y_i \le N, x_i \ne y_i)$ koji označavaju da postoji hodnik između soba $x_i$ i $y_i$.
+
+U posljednjem retku nalazi se $Q$ brojeva $r_i$ $(1 \le r_i \le N)$, duljine kablova usisavača.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Output
+\subsection*{Izlazni podaci}
+
+U jedini redak ispišite $Q$ brojeva gdje $i$-ti broj predstavlja minimalno trajanje čišćenja s $i$-tim usisavačem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scoring
+\subsection*{Bodovanje}
+
+U svim podzadacima vrijedi $2 \le N \le 3 \cdot 10^5$ i $1 \le Q \le 3 \cdot 10^5$.
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{ccl}
+   Podzadatak & Broj bodova & Ograničenja \\ \midrule
+   	1 & 16 & $N, Q \le 1000$ \\
+    2 & 10 & Svaka soba $x = 1, 2, \dots, N - 1$ je povezana hodnikom sa sobom $x + 1$. \\
+    3 & 22 & $Q = 1$ \\
+    4 & 31 & $N, Q \leq 10^5$ \\
+    5 & 21 & Nema dodatnih ograničenja. \\
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examples
+\subsection*{Probni primjeri}
+\begin{tabularx}{\textwidth}{X'X'X}
+\sampleinputs{test/usisavac.dummy.in.1}{test/usisavac.dummy.out.1} &
+\sampleinputs{test/usisavac.dummy.in.2}{test/usisavac.dummy.out.2} &
+\sampleinputs{test/usisavac.dummy.in.3}{test/usisavac.dummy.out.3}
+\end{tabularx}
+
+\textbf{Pojašnjenje drugog probnog primjera:}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We're done
+\end{statement}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% ispell-local-dictionary: "croatian"
+%%% TeX-master: "../hio.tex"
+%%% End:
