@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem statement
+\begin{statement}[
+  problempoints=100,
+  timelimit=1 sekunda,
+  memorylimit=512 MiB,
+]{Vrsta}\
+
+Mirko ima skrivenu permutaciju $p_1, p_2, \ldots, p_N$ brojeva od $1$ do $N$. Njegov prijatelj Slavko želi otkriti tu permutaciju, no Mirko će mu odgovarati samo na pitanja određenog oblika.
+
+Slavko može odabrati bilo koji podniz permutacije, tj.\ segment $p_i, p_{i+1}, \ldots, p_j$ ($1 \le i < j \le N$), i pitati Mirka na kojoj se poziciji nalazi drugi najveći broj u tom segmentu. Mirko mu tada odmah odgovori s traženom pozicijom.
+
+Nakon što mu je odgovorio na sva pitanja, Mirko je odlučio ispitati Slavkovo znanje. Postavit će mu $Q$ upita istoga oblika, a od njega će očekivati da za svaki da točan odgovor.
+
+Slavko ne zna Mirkova pitanja unaprijed, a kako ga ne bi razljutio, želi ga pitati što je moguće manje pitanja. Točnije, Slavko smije postaviti Mirku upit najviše $K$ puta. Pomozite Slavku postaviti pitanja i zatim odgovoriti na Mirkove upite.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Interaction
+\subsection*{Interakcija}
+
+Ovo je interaktivni zadatak. Vaš program treba uspostaviti dijalog s programom izrađenim od strane organizatora.
+
+Na početku, vaš program treba sa standardnog ulaza učitati broj $N$, duljinu permutacije.
+
+Zatim može slati upite ispisivanjem na standardni izlaz. Svaki upit mora biti ispisan u zaseban redak i imati oblik "\texttt{?} $i$ $j$", gdje su $i$ i $j$ prirodni brojevi za koje vrijedi $1 \le i < j \le N$. Brojevi $i$ i $j$ predstavljaju granice podniza za koji Slavko želi znati odgovor. Vaš program smije postaviti najviše $K$ ovakvih upita.
+
+Nakon svakog ispisanog upita, program mora napraviti \textit{flush} izlaza te sa standardnog ulaza učitati odgovor na upit — poziciju $k$ za koju vrijedi $i \le k \le j$.
+
+Kada završi s postavljanjem vlastitih upita, program treba ispisati znak "\texttt{!}" kako bi označio kraj Slavkovih pitanja i zatim napraviti \textit{flush} izlaza.
+
+Nakon toga, potrebno je učitati prirodan broj $Q$ — broj Mirkovih upita. Upiti se zatim učitavaju jedan po jedan, svaki u obliku "$a$ $b$", gdje su $a$ i $b$ prirodni brojevi za koje vrijedi $1 \le a < b \le N$. Za svaki takav upit potrebno je ispisati prirodan broj $k$ — poziciju drugog najvećeg elementa u podnizu $p_a, \ldots, p_b$. \textbf{Potrebno je odgovoriti na pojedini upit prije učitavanja sljedećeg.}
+
+Nakon svakog ispisa, vaš program treba napraviti \textit{flush} izlaza. Kada odgovori na posljednji upit, program može završiti izvođenje.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scoring
+\subsection*{Bodovanje}
+
+%%%%%%%%%	NAPISATI OGRANICENJA
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{ccl}
+   Podzadatak & Broj bodova & Ograničenja \\ \midrule
+   	1 & 4 & $N \leq 20$ \\
+    2 & 7 & $c_i = 1$ za sve $i$ i dodatno ako je $j$ šef od $i$ tada $p_j \geq p_i$. \\
+    3 & 23 & Za sve $i < N$, izravan šef od $i + 1$ je $i$. \\
+    4 & 13 & $N, K \leq 500$ \\
+    5 & 18 & $N \leq 100$ \\
+    6 & 35 & Nema dodatnih ograničenja. \\
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examples
+\subsection*{Probni primjeri}
+\begin{tabularx}{\textwidth}{X'X'X}
+\sampleinputs{test/vrsta.dummy.in.1}{test/vrsta.dummy.out.1} &
+\sampleinputs{test/vrsta.dummy.in.2}{test/vrsta.dummy.out.2} &
+\sampleinputs{test/vrsta.dummy.in.3}{test/vrsta.dummy.out.3}
+\end{tabularx}
+
+\pagebreak
+
+\textbf{Pojašnjenje drugog probnog primjera:}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We're done
+\end{statement}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% ispell-local-dictionary: "croatian"
+%%% TeX-master: "../hio.tex"
+%%% End:
