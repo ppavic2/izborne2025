@@ -9,8 +9,8 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> pii;
 
-const int N = 2e5 + 500;
-const int OFF = (1 << 18);
+const int N = 5e5 + 500;
+const int OFF = (1 << 19);
 
 int L[N], R[N], lft[N], rht[N], par[N], value[N], priority[N];
 

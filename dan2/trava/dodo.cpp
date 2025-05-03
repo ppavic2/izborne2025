@@ -10,7 +10,7 @@ using vl=vector<ll>;
 #define pb push_back
 #define all(a) begin(a),end(a)
 
-const int N=200010,M=1<<18,MOD=1e9+7;
+const int N=500010,M=1<<19,MOD=1e9+7;
 const char en='\n';
 const ll LLINF=1ll<<61;
 

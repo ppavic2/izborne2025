@@ -15,8 +15,8 @@ Osim toga, s vremena na vrijeme trava na nekom segmentu može narasti za jedan m
 Potrebno je obraditi $Q$ upita sljedećih oblika:
 \vspace{-0.7em}
 \begin{itemize}
-    \item \texttt{1 k} — umirovljenik s dioptrijom $k$ promatra travnjak. Odredi sumu svih visina koje on vidi.
-    \item \texttt{2 i} — trava na $i$-tom segmentu naraste za jedan milimetar.
+    \item \texttt{\frenchspacing? k} — umirovljenik s dioptrijom $k$ promatra travnjak. Odredi sumu svih visina koje on vidi.
+    \item \texttt{+ i} — trava na $i$-tom segmentu naraste za jedan milimetar.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,42 +32,40 @@ U trećem retku nalazi se cijeli broj $Q$ — broj upita.
 U idućih $Q$ redaka nalazi se po jedan upit opisan kao:
 \vspace{-0.7em}
 \begin{itemize}
-    \item \texttt{1 k} ($1 \leq k \leq N$)
-    \item \texttt{2 i} ($1 \leq i \leq N$)
+    \item \texttt{\frenchspacing? k} ($1 \leq k \leq N$)
+    \item \texttt{+ i} ($1 \leq i \leq N$)
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Output
 \subsection*{Izlazni podaci}
 
-Za svaki upit tipa \texttt{1 k}, ispiši u zaseban redak jedan cijeli broj — sumu najvećih visina u svim prozorima duljine $k$.
+Za svaki upit tipa \texttt{\frenchspacing? k}, ispiši u zaseban redak jedan cijeli broj — sumu svih visina koje promatra umirovljenik s dioptrijom $k$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Scoring
 \subsection*{Bodovanje}
 
-%%%%%%%%%	NAPISATI OGRANICENJA
-%%%%%%%%%   prepraviti prirodan / cijeli broj iz ulaza po potrebi
+U svim podzadacima vrijedi $1 \leq N \leq 500\,000$ te $0 \leq Q \leq 500\,000$. Ddodatno, za sve $1 \leq i \leq N$ vrijedi $1 \leq A_i \leq 10^9$.
 
 {\renewcommand{\arraystretch}{1.4}
   \setlength{\tabcolsep}{6pt}
   \begin{tabular}{ccl}
    Podzadatak & Broj bodova & Ograničenja \\ \midrule
-   	1 & 4 & $N \leq 20$ \\
-    2 & 7 & $c_i = 1$ za sve $i$ i dodatno ako je $j$ šef od $i$ tada $p_j \geq p_i$. \\
-    3 & 23 & Za sve $i < N$, izravan šef od $i + 1$ je $i$. \\
-    4 & 13 & $N, K \leq 500$ \\
-    5 & 18 & $N \leq 100$ \\
-    6 & 35 & Nema dodatnih ograničenja. \\
+   	1 & 13 & $N, Q \leq 7\,000$ \\
+   	2 & 16 & Ne postoje upiti oblika \texttt{+ i}. \\
+   	3 & 23 & U svakom trenutku vrijedit će $A_i \leq 10$ za sve $1 \leq i \leq N$. \\
+   	4 & 10 & Vrijedit će da se u svim upitima oblika \texttt{\frenchspacing? k} pojavljuje ista vrijednost $k$. \\
+   	5 & 20 & $N, Q \leq 100\,000$ \\
+   	6 & 18 & Nema dodatnih ograničenja. \\ 
 \end{tabular}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Examples
 \subsection*{Probni primjeri}
-\begin{tabularx}{\textwidth}{X'X'X}
+\begin{tabularx}{\textwidth}{X'X}
 \sampleinputs{test/trava.dummy.in.1}{test/trava.dummy.out.1} &
-\sampleinputs{test/trava.dummy.in.2}{test/trava.dummy.out.2} &
-\sampleinputs{test/trava.dummy.in.3}{test/trava.dummy.out.3}
+\sampleinputs{test/trava.dummy.in.2}{test/trava.dummy.out.2}
 \end{tabularx}
 
 \pagebreak
