@@ -8,11 +8,11 @@
 
 Bliže se lokalni izbori!
 
-Prije promjene vlasti, potrebno je podijeliti bonuse u jednom neimenovanom odjelu gradske uprave. Hijerarhiju uprave možemo predstaviti stablom u kojem je čvorom $1$ označen direktor, te izravan šef svakog zaposlenika je njegov roditelj u stablu.
+Prije promjene vlasti potrebno je podijeliti bonuse u jednom neimenovanom odjelu gradske uprave. Hijerarhiju uprave možemo predstaviti stablom u kojem je čvor $1$ označen kao direktor, a izravni šef svakog zaposlenika je njegov roditelj u stablu.
 
-Ako $i$-ti zaposlenik dobije bonus u iznosu od barem $c_i$, njegova će produktivnost u sljedećoj godini biti veća za $p_i$, dok u suprotnom ostaje ista. Ne moraju svi zaposlenici dobiti bonus (t.j. mogu dobiti bonus u iznosu od $0$), no za svakog zaposlenika koji je dobio bonus mora vrijediti da je njegov izravni šef dobio barem nekakv bonus (makar to bilo u iznosu od $1$).
+Ako $i$-ti zaposlenik dobije bonus u iznosu od barem $c_i$, njegova će se produktivnost u sljedećoj godini povećati za $p_i$, dok u suprotnom ostaje nepromijenjena. Nije nužno da svi zaposlenici dobiju bonus, ali za svakog zaposlenika koji dobije bonus mora vrijediti da je i njegov izravni šef dobio barem neki pozitivan bonus (makar u iznosu $1$).
 
-Odredite najvećue moguće povećanje produktivnosti odjela ako je iznos proračuna za bonuse najviše $K$.
+Odredite najveće moguće povećanje ukupne produktivnosti odjela ako je ukupan iznos proračuna za bonuse najviše $K$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Input
@@ -20,7 +20,7 @@ Odredite najvećue moguće povećanje produktivnosti odjela ako je iznos prorač
 
 U prvom retku su prirodni brojevi $N$ i $K$.
 
-U drugom je retku $N - 1$ brojeva $s_i$ ($1 \leq p_i \leq i$) gdje $i$-ti broj označava izravnog šefa $i+1$-og radnika.
+U drugom je retku $N - 1$ brojeva $s_i$ ($1 \leq s_i \leq i$) gdje $i$-ti broj označava izravnog šefa $i+1$-tog radnika.
 
 U trećem je retku $N$ brojeva $p_i$.
 
