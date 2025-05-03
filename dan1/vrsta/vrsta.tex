@@ -42,24 +42,37 @@ Nakon ispisa odgovora na sve upite, vaš program treba napraviti \textit{flush} 
   \setlength{\tabcolsep}{6pt}
   \begin{tabular}{ccl}
    Podzadatak & Broj bodova & Ograničenja \\ \midrule
-   	1 & 4 & $N \leq 20$ \\
-    2 & 7 & $c_i = 1$ za sve $i$ i dodatno ako je $j$ šef od $i$ tada $p_j \geq p_i$. \\
-    3 & 23 & Za sve $i < N$, izravan šef od $i + 1$ je $i$. \\
-    4 & 13 & $N, K \leq 500$ \\
-    5 & 18 & $N \leq 100$ \\
-    6 & 35 & Nema dodatnih ograničenja. \\
+   	1 & 6 & $N \leq 64$ \\
+    2 & 10 & Ne postoji $i$ takav da je $p_i < \min\{p_{i - 1}, p_{i + 1}\}$ \\
+    3 & 11 & $p_1 = N$ \\
+    4 & 13 & Ne postoji $i$ takav da je $p_i > \max\{p_{i - 1}, p_{i + 1}\}$ \\
+    5 & 26 & $N \leq 256$ \\
+    6 & 34 & Nema dodatnih ograničenja. \\
 \end{tabular}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Examples
-\subsection*{Probni primjeri}
-\begin{tabularx}{\textwidth}{X'X'X}
-\sampleinputs{test/vrsta.dummy.in.1}{test/vrsta.dummy.out.1} &
-\sampleinputs{test/vrsta.dummy.in.2}{test/vrsta.dummy.out.2} &
-\sampleinputs{test/vrsta.dummy.in.3}{test/vrsta.dummy.out.3}
-\end{tabularx}
+\subsection*{Primjer interakcije}
 
-\textbf{Pojašnjenje drugog probnog primjera:}\\
+Pretpostavimo Mirko ima permutatciju \texttt{2 1 4 3}.
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{lcl}
+    Izlaz & Ulaz\\ \midrule
+    \texttt{\frenchspacing?} & \texttt{4} \\
+    \texttt{\frenchspacing? 1 2} & \texttt{}  \\
+    \texttt{\frenchspacing? } & \texttt{2} \\
+    \texttt{\frenchspacing? 1 3} & \texttt{} \\
+    \texttt{\frenchspacing? } & \texttt{1} \\
+    \texttt{\frenchspacing?} & \texttt{}\\
+    \texttt{\frenchspacing!} &\\
+    \texttt{} & \texttt{2} \\
+    \texttt{} & \texttt{1 4} \\
+    \texttt{} & \texttt{2 3} \\
+    \texttt{4} & \texttt{} \\
+    \texttt{2} & \texttt{} \\
+\end{tabular}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
