@@ -214,7 +214,25 @@ int main(int argc, char** argv){
 
 	cout << n << " " << q << "\n";
 	finish_output(graph);
-	for (int i = 1; i < q; i++) cout << i << " ";
-	cout << q << "\n";
+  if(q == 1) {
+    if(T == "CHAIN" || T == "DEEP") {
+      cout << rint(1, n / 10) << '\n';
+    }
+    else if(T == "SHALLOW") {
+      cout << rint(1, 10) << '\n';
+    }
+    else {
+      cout << rint(1, sqrt(n)) << '\n';
+    }
+    return 0;
+  }
+  vector < int > v;
+  for(int i = 1; i <= n; i++) {
+    v.push_back(i);
+  }
+  random_shuffle(v.begin(), v.end());
+	for (int i = 1; i < q; i++) cout << v[i - 1] << " ";
+	cout << v[q - 1] << "\n";
+  return 0;
 }
 
