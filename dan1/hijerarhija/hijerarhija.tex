@@ -22,9 +22,9 @@ U prvom retku su prirodni brojevi $N$ i $K$.
 
 U drugom je retku $N - 1$ brojeva $s_i$ ($1 \leq s_i \leq i$) gdje $i$-ti broj označava izravnog šefa $i+1$-tog radnika.
 
-U trećem je retku $N$ brojeva $p_i$.
+U trećem je retku $N$ brojeva $p_1, p_2, \ldots, p_N$.
 
-U četvrtom je retku $N$ brojeva $c_i$. 
+U četvrtom je retku $N$ brojeva $c_1, c_2, \ldots, c_N$. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Output
@@ -61,10 +61,13 @@ Za sve $i = 1, \dots, N$ vrijedi da je $1 \leq p_i \leq 10^5$ i $1 \leq c_i \leq
 \sampleinputs{test/hijerarhija.dummy.in.3}{test/hijerarhija.dummy.out.3}
 \end{tabularx}
 
-\pagebreak
+\textbf{Pojašnjenje drugog probnog primjera:}
 
-\textbf{Pojašnjenje drugog probnog primjera:}\\
+Primjer valjane dodjele bonusa je sljedeći: zaposlenici dobiju redom $1$, $1$, $0$, $2$ i $3$ bonusa.
 
+Dodjela $1$, $1$, $1$, $2$, $3$ nije valjana jer ukupni broj dodijeljenih bonusa premašuje dozvoljeni proračun.
+
+Dodjela $0$, $1$, $1$, $2$, $3$ također nije valjana jer je zaposlenik $2$ dobio bonus, a njegov izravni šef nije.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % We're done
