@@ -6,7 +6,7 @@
   memorylimit=512 MiB,
 ]{Vrsta}\
 
-Mirko ima skrivenu permutaciju $p_1, p_2, \ldots, p_N$ brojeva od $1$ do $N$. Njegov prijatelj Slavko želi otkriti tu permutaciju, no Mirko će mu odgovarati samo na pitanja određenog oblika.
+Mirko ima skrivenu permutaciju $p_1, p_2, \ldots, p_N$ brojeva od $1$ do $N$. Njegov prijatelj Slavko želi otkriti srž Mirkove permutaciju, no on će mu odgovarati samo na pitanja određenog oblika.
 
 Slavko može odabrati bilo koji podniz permutacije, tj.\ segment $p_i, p_{i+1}, \ldots, p_j$ ($1 \le i < j \le N$), i pitati Mirka na kojoj se poziciji nalazi drugi najveći broj u tom segmentu. Mirko mu tada odmah odgovori s traženom pozicijom.
 
@@ -43,9 +43,9 @@ Nakon ispisa odgovora na sve upite, vaš program treba napraviti \textit{flush} 
   \begin{tabular}{ccl}
    Podzadatak & Broj bodova & Ograničenja \\ \midrule
    	1 & 6 & $N \leq 64$ \\
-    2 & 10 & Ne postoji $i$ takav da je $p_i < \min\{p_{i - 1}, p_{i + 1}\}$ \\
+    2 & 10 & Ne postoji $i$ takav da je $p_i > \max\{p_{i - 1}, p_{i + 1}\}$ \\
     3 & 11 & $p_1 = N$ \\
-    4 & 13 & Ne postoji $i$ takav da je $p_i > \max\{p_{i - 1}, p_{i + 1}\}$ \\
+    4 & 13 & Ne postoji $i$ takav da je $p_i < \min\{p_{i - 1}, p_{i + 1}\}$ \\
     5 & 26 & $N \leq 256$ \\
     6 & 34 & Nema dodatnih ograničenja. \\
 \end{tabular}}
@@ -60,17 +60,16 @@ Pretpostavimo Mirko ima permutatciju \texttt{2 1 4 3}.
   \setlength{\tabcolsep}{6pt}
   \begin{tabular}{lcl}
     Izlaz & Ulaz\\ \midrule
-    \texttt{\frenchspacing?} & \texttt{4} \\
+    \texttt{} & \texttt{4} \\
     \texttt{\frenchspacing? 1 2} & \texttt{}  \\
-    \texttt{\frenchspacing? } & \texttt{2} \\
+    \texttt{ } & \texttt{2} \\
     \texttt{\frenchspacing? 1 3} & \texttt{} \\
-    \texttt{\frenchspacing? } & \texttt{1} \\
-    \texttt{\frenchspacing?} & \texttt{}\\
+    \texttt{ } & \texttt{1} \\
     \texttt{\frenchspacing!} &\\
     \texttt{} & \texttt{2} \\
-    \texttt{} & \texttt{1 4} \\
-    \texttt{} & \texttt{2 3} \\
-    \texttt{4} & \texttt{} \\1
+    \texttt{} & \texttt{\;\;\;\,1 4} \\
+    \texttt{} & \texttt{\;\;\;\,2 3} \\
+    \texttt{4} & \texttt{} \\
     \texttt{2} & \texttt{} \\
 \end{tabular}}
 
