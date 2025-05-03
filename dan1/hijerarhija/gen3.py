@@ -322,6 +322,24 @@ def gen_cases():
 		subtask6.append(Decorator.create(Tree.star(N), 'heap', k = random.randint(1, N)))
 
 
+	subtask1.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	subtask1.append(Test(2, 1, [1], [2, 2], [2, 2]))
+	
+	subtask2.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	subtask2.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	
+	subtask3.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	subtask3.append(Test(2, 1, [1], [2, 2], [2, 2]))
+	
+	subtask4.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	subtask4.append(Test(2, 1, [1], [2, 2], [2, 2]))
+	
+	subtask5.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	subtask5.append(Test(2, 1, [1], [2, 2], [2, 2]))
+
+	subtask6.append(Test(2, 1, [1], [1, 1], [1, 1]))
+	subtask6.append(Test(2, 1, [1], [2, 2], [2, 2]))
+
 	real = [
 		subtask1,
 		subtask2,
