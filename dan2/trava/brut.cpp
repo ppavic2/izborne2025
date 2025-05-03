@@ -17,9 +17,9 @@ int main() {
 	}
 	
 	while (q--) {
-		int t, k;
+		char t; int k;
 		cin >> t >> k;
-		if (t == 1) {
+		if (t == '+') {
 			--k;
 			a[k] += 1;
 		} else {

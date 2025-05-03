@@ -28,6 +28,8 @@ void rotate(int x) {
 		if(R[p] != -1) par[R[p]] = p, rht[p] = rht[R[p]];
 	}
 	par[x] = par[p];
+	if(x < par[x]) L[par[x]] = x;
+	else 		   R[par[x]] = x;
 	par[p] = x;
 }
 
@@ -118,7 +120,8 @@ int build_cartesian_tree(int l, int r) {
 int main() {
 	scanf("%d%d", &n, &q);
 	for(int i = 0;i < n;i++) {
-		priority[i] = rand(), T[OFF + i] = i;
+		priority[i] = rand();
+		T[OFF + i] = i;
 		scanf("%d", value + i);
 	}
 	for(int i = OFF - 1; i ; i--) 

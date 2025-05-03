@@ -83,7 +83,7 @@ void send_answer(int a, int b, int ret) {
 
 typedef vector<int> vi;
 
-const int OFF = (1 << 9);
+const int OFF = (1 << 10);
 
 int P[OFF], T[2 * OFF];
 
@@ -110,11 +110,9 @@ int second_max(int l, int r) {
 void main_problem_interaction() {
   const string QUERY_COMMAND = "?";
   const string END_COMMAND = "!";
-
-  int n, k, q;
+  int n, q;
 
   test_condition(bool(finput >> n), CANNOT_READ_N);
-  test_condition(bool(finput >> k), CANNOT_READ_K);
   test_condition(bool(finput >> q), CANNOT_READ_Q);
 
   for (int i = 1;i <= n;i++) {
@@ -123,12 +121,12 @@ void main_problem_interaction() {
   }
   for(int i = OFF - 1; i ; i--) T[i] = maax(T[2 * i], T[2 * i + 1]);
 
-  int QUERY_LIMIT = k;
+  int QUERY_LIMIT = 2048;
 
   // Start interaction
   int query_count = 0;
 
-  cout << n << " " << k << endl;
+  cout << n << " " << q << endl;
 
   flog << WAITING << endl;
   // Loop.
@@ -168,13 +166,11 @@ void main_problem_interaction() {
   for(int i = 0;i < q;i++) {
   	int contestant_answer;
   	test_condition(bool(cin >> contestant_answer), WA_PREMATURE_TERMINATION);
-  	flog << l[i] << " " << r[i] << endl;
-  	flog << contestant_answer << " " << second_max(l[i], r[i]) << endl;
   	test_condition(contestant_answer == second_max(l[i], r[i]), WA_INCORRECT);
   }
   
   
-  flog << "broj upita: " << query_count << endl;
+  flog << "broj upita: " << query_count << " koeficijent " << (query_count / (double)n) << endl;
  // foutput << "broj upita: " << query_count << endl;
 }
 

@@ -15,19 +15,28 @@ const int OFF = (1 << 18);
 int L[N], R[N], lft[N], rht[N], par[N], value[N], priority[N];
 
 void rotate(int x) {
+	printf("rotate %d\n", x);
 	int p = par[x];
 	if(x < p) {
 		L[p] = R[x]; lft[p] = p;
 		R[x] = p;
 		rht[x] = rht[p];
-		if(L[p] != -1) par[L[p]] = p, lft[p] = lft[L[p]];
+		if(L[p] != -1) {
+			par[L[p]] = p;
+		    lft[p] = lft[L[p]];
+		}
 	} else {
 		R[p] = L[x]; rht[p] = p;
 		L[x] = p;
 		lft[x] = lft[p];
-		if(R[p] != -1) par[R[p]] = p, rht[p] = rht[R[p]];
+		if(R[p] != -1) {
+			par[R[p]] = p;
+			rht[p] = rht[R[p]];
+		}
 	}
 	par[x] = par[p];
+	if(x < par[x]) L[par[x]] = x;
+	else 		   R[par[x]] = x;
 	par[p] = x;
 }
 
@@ -101,8 +110,20 @@ int main() {
 			int k; scanf("%d", &k);
 			printf("%lld\n", ans[k]);
 		} else {
+			for(int i = 0;i < n;i++) printf("%2d ", value[i]);
+			printf("\n");
+			for(int i = 0;i < n;i++) printf("%2d ", i);
+			printf("\n");
+			for(int i = 0;i < n;i++) printf("%2d ", par[i]);
+			printf("\n");
+			for(int i = 0;i < n;i++) printf("%2d ", L[i]);
+			printf("\n");
+			for(int i = 0;i < n;i++) printf("%2d ", R[i]);
+			printf("\n");
 			int x; scanf("%d", &x); x--;
+			printf("value[ %d ] ( = %d ) += 1\n", x + 1, value[x]);
 			pii interval = increment(x);
+			printf("%d %d\n", interval.X + 1, interval.Y + 1);
 			dodaj(x - interval.X, interval.Y - x);
 		}
 	}

@@ -81,7 +81,6 @@ void build_skips() {
 }
 
 int second_max(int l, int r) {
-	//cerr << l << " " << r << endl;
 	for(int i = l;i <= r;i++) {
 		int cnt = 0;
 		cnt += (l <= L[i] && L[i] <= r);
@@ -102,10 +101,8 @@ int main() {
 	build_skips();
 	cout << "!" << endl;
 	cin >> q;
-	cerr << q << endl;
 	for(;q--;) {
 		int l, r; cin >> l >> r;
-		cerr << l << " " << r << endl;
 		cout << second_max(l, r) << endl;
 	}
 	return 0;
