@@ -237,7 +237,7 @@ def gen_tails(n: int, x: int) -> list[int]:
 def gen_cases():
 	remove_cases()
 
-	dummy = []
+	dummy = [gen_chain(4, o = 1)]
 
 	# N <= 512
 	subtask1 = [] # lanac
