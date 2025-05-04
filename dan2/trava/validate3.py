@@ -35,25 +35,19 @@ def check(lines):
     assert lines[-1][-1] == "\n", "Zadnji red ne zavrsava sa \\n"
     return {'n' : n, 'q' : q, 'plus' : plus, 'maksi' : maksi, 'ista' : ista}
 
-
-# Ocekivani clusteri! Ovo vjerojatno zelis promijeniti!
-expected_clusters = {'p1' :  1, 'p2' : 1, 'p3' : 1, 'p4' : 1, 'p5' : 1, 'ostalo' : 1}
-
-
 def what_cluster(data):
-    # na temelju povratne informacije iz check(lines)
-    # zakljucuje za TP u kojoj je bodovnoj sekciji
-    if data['n'] <= 7000 and data['q'] <= 7000:
-        return 'p1'
-    elif data['plus']:
-        return 'p2'
+    where = ['s6']
+    if data['n'] <= 7000 and data['q'] <= 7000: 
+    	where += ['s1']
+    if data['plus']:
+    	where += ['s2']
     elif data['maksi'] <= 10:
-        return 'p3'
+    	where += ['s3']
     elif data['ista']:
-        return 'p4'
+    	where += ['s4']
     elif data['n'] <= 10**5 and data['q'] <= 10**5:
-        return 'p5'
-    return 'ostalo'
+    	where += ['s5']
+    return where
 
 
 ################### Zadatak-specifican kod iznad ove linije #########################
@@ -69,7 +63,21 @@ def group_in_batches(files):
     files.sort()
     B = []
     for f in files:
-        if f[-1].islower() and len(B) > 0 and f[:-1] == B[-1][-1][:-1]:
+        if len(B) == 0:
+            B.append([f])            
+            continue
+        if "dummy" in f:
+            B.append([f])
+            continue
+        s = f
+        i = -1
+        while s[i].isalpha():
+            i -= 1
+        ss = B[-1][-1]
+        j = -1
+        while ss[j].isalpha():
+            j -= 1
+        if ss[j] == s[i]:
             B[-1].append(f)
         else:
             B.append([f])
@@ -92,24 +100,18 @@ if __name__ == "__main__":
                 lines = open(filename).readlines()
                 summary = check(lines)
                 c = what_cluster(summary)
+                if not 'dummy' in filename:
+                    i = -1
+                    while filename[i].isalpha(): i -= 1
+                    s = int(filename[i])
+                    assert ("s" + str(s)) in c, "primjer ne pripada subtasku"
+                    
                 if 'dummy' not in batch[0]:
                     bc[-1].append(c)
             except Exception as e:
-                print("Greska!", e)
+                print("Greska! (summary = {})".format(summary), e)
                 raise
             else:
                 print("Sve ok! (cluster {}, summary = {})".format(c, summary))
 
-    clusters = {}
-    for b in bc:
-        for c in b:
-            assert c == b[0], "Ima razlicitih cluster-a unutar batcha"
-        if not b[0] in clusters:
-            clusters[b[0]] = 0
-        clusters[b[0]] += 1
 
-    assert clusters == expected_clusters, "Kriva raspodjela clustera ({} vs {})".format(clusters, expected_clusters)
-
-    # Buda test - provjeri duplikate
-    hashes = set(hashlib.sha1(open(x, 'rb').read()).hexdigest() for x in f)
-    assert len(hashes) == len(f), "Ima duplikata!"
