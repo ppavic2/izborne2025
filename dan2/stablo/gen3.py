@@ -8,7 +8,7 @@ import subprocess
 import math
 from collections import defaultdict
 
-PROBLEM = "binarni"
+PROBLEM = "stablo"
 sys.setrecursionlimit(1000010)
 
 N = 511
