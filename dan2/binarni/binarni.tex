@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem statement
+\begin{statement}[
+  problempoints=100,
+  timelimit=1 sekunda,
+  memorylimit=512 MiB,
+]{Stablo}\
+
+Mirko je od Slavka danas sakrio stablo s $N$ čvorova. Slavka jako zanima kako izgleda Mirkovo stablo, no jedino što zna je da je stupanj svakog čvora unutar stabla najviše $3$ t.j. svaki čvor ima najviše tri susjeda.
+
+Mirko se sažalio nad Slavkom te dopustio mu da postavi $K$ pitanja o stablu. Za danu trojku \textbf{različitih} čvorova $a$, $b$ i $c$, Mirko će mu odgovoriti
+\begin{itemize}
+\item \texttt{0} ako je udaljenost između čvorova $a$ i $b$ \textbf{jednaka} udaljenosti između čvorova $a$ i $c$
+\item \texttt{1} ako je udaljenost između čvorova $a$ i $b$ \textbf{manja} od udaljenosti između čvorova $a$ i $c$
+\item \texttt{2} ako je udaljenost između čvorova $a$ i $b$ \textbf{veća} od udaljenosti između čvorova $a$ i $c$.
+\end{itemize}
+
+Udaljenost čvorova $u$ i $v$ se definira kao broj bridova na putu između njih.
+
+Pomozite Slavku odrediti Mirkovo stablo!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Interaction
+\subsection*{Interakcija}
+
+Ovo je interaktivni zadatak. Vaš program treba uspostaviti dijalog s programom izrađenim od strane organizatora.
+
+Na početku, vaš program treba sa standardnog ulaza učitati broj $N$, veličinu stabla.
+
+Zatim može slati upite ispisivanjem na standardni izlaz. Svaki upit mora biti ispisan u zaseban redak i imati oblik ``\texttt{?} $a$ $b$ $c$'', gdje su $a$, $b$ i $c$ svi prirodni brojevi za koje vrijedi $1 \le a, b, c \le N$ te $a \neq b$, $b \neq c$ i $c \neq a$. Brojevi $a$, $b$ i $c$ predstavljaju čvorove stabla za koje Slavko želi znati odgovor. Vaš program smije postaviti najviše $K$ ovakvih upita.
+
+Nakon svakog ispisanog upita, program mora napraviti \textit{flush} izlaza te sa standardnog ulaza učitati odgovor na upit — nenegativan broj $k$ za koji vrijedi $k \in \{0, 1, 2\}$.
+
+Kada završi s postavljanjem vlastitih upita, program treba ispisati znak ``\texttt{!}'' kako bi označio kraj Slavkovih pitanja i zatim napraviti \textit{flush} izlaza.
+
+Nakon toga, potrebno je ispisati bridove Mirkovog stabla. To jest, ispisati $N - 1$ redaka gdje $i$-ti redak sadrži par brojeva $u_i$ te $v_i$, koji predstavljaju brid u Mirkovom stablu. Nije bitan redoslijed čvorova u bridu niti redoslijed bridova u ispisu. Potrebno je ispisati sve bridove.
+
+Nakon ispisa odgovora, vaš program treba napraviti \textit{flush} izlaza i završiti izvođenje.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scoring
+\subsection*{Bodovanje}
+
+U svim podzadatcima vrijedi $N \leq 512$, $K = ?$.
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{ccl}
+   Podzadatak & Broj bodova & Ograničenja \\ \midrule
+   	1 & 6 & $N \leq 64$ \\
+    2 & 10 & Ne postoji $i$ takav da je $p_i > \max\{p_{i - 1}, p_{i + 1}\}$ \\
+    3 & 11 & $p_1 = N$ \\
+    4 & 13 & Ne postoji $i$ takav da je $p_i < \min\{p_{i - 1}, p_{i + 1}\}$ \\
+    5 & 26 & $N \leq 256$ \\
+    6 & 34 & Nema dodatnih ograničenja. \\
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examples
+\subsection*{Primjer interakcije}
+
+Pretpostavimo Mirko ima permutatciju \texttt{2 1 4 3}.
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{lcl}
+    Izlaz & Ulaz\\ \midrule
+    \texttt{} & \texttt{4} \\
+    \texttt{\frenchspacing? 1 2 3} & \texttt{}  \\
+    \texttt{ } & \texttt{1} \\
+    \texttt{\frenchspacing? 1 4 3} & \texttt{} \\
+    \texttt{ } & \texttt{2} \\
+    \texttt{\frenchspacing? 2 1 3} & \texttt{} \\
+    \texttt{ } & \texttt{0} \\    
+    \texttt{\frenchspacing!} &\\
+    \texttt{1 2} & \texttt{} \\
+    \texttt{2 3} & \texttt{} \\
+    \texttt{3 4} & \texttt{} \\
+\end{tabular}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We're done
+\end{statement}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% ispell-local-dictionary: "croatian"
+%%% TeX-master: "../hio.tex"
+%%% End:
