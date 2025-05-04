@@ -82,7 +82,7 @@ void send_answer(int a, int b, int ret) {
   cout << ret << endl;
 }
 
-vector<int> v[505];
+vector<int> v[515];
 int n;
 
 void bfs(int start, vector<int> &dist) {
@@ -122,11 +122,6 @@ void main_problem_interaction() {
   }
   
   for(int i = 1;i <= n;i++) bfs(i, dist[i]);
-  
-  for(int k = 1;k <= n;k++)
-  	for(int i = 1;i <= n;i++)
-  		for(int j = 1;j <= n;j++)
-  			dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
  
   int QUERY_LIMIT = 250000;
 
@@ -172,12 +167,12 @@ void main_problem_interaction() {
   
   for(int i = 1;i < n;i++) {
   	int a, b; 
-  	test_condition(bool(finput >> a >> b), WA_INCORRECT);
+  	test_condition(bool(cin >> a >> b), WA_INCORRECT);
   	test_condition(bool(dist[a][b] == 1), WA_INCORRECT);
   	dist[a][b] = -1; dist[b][a] = -1;
   }
   if(!query_count) query_count = 1;
-  foutput << min(1.0, pow((double)13500/query_count, 0.7)) << endl;
+  foutput << min(1.0, pow((double)14000/query_count, 0.7)) << endl;
 }
 
 int main(int argc, char *argv[]) {
